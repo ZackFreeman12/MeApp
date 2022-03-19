@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MeAppChat</string>
+    <string name="api_key">k45gyenxbrxs</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_username">Username: </string>
+    <string name="app_password">Password: </string>
+    <string name="app_title">Me: App</string>
+    <string name="app_login">Log In</string>
+    <string name="app_signup">Sign Up</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+</resources>
