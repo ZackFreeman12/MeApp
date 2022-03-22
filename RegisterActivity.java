@@ -2,8 +2,10 @@ package ca.mohawk.meapp11;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
 
     Button btnSub;
+    Button btnBackToLog;
     EditText etFirst, etLast, etEmail, etPass, etAge;
 
     @Override
@@ -21,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        btnBackToLog = findViewById(R.id.btnBackToLog);
         btnSub = findViewById(R.id.btnSub);
         etEmail = findViewById(R.id.etEmail);
         etFirst = findViewById(R.id.etFirst);
@@ -110,5 +114,17 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        btnBackToLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toLog();
+            }
+        });
+
+    }
+
+    public void toLog(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

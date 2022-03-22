@@ -2,8 +2,11 @@ package ca.mohawk.meapp11;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Debug;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -53,4 +56,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return insert != -1;
     }
+
+    public String checkEmailPassword(String email, String pass){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from PROFILE_TABLE where COLUMN_USER_EMAIL=? and COLUMN_USER_PASSWORD=?", new String[] {email,pass});
+
+        if(cursor.moveToFirst()){
+            Log.d("TAG",cursor.getString(2));
+            return email;
+        }
+        else{
+            return null;
+        }
+
+    }
+
+    public String[] getProfileData (String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from PROFILE_TABLE where COLUMN_USER_EMAIL=?",new String[] {email});
+
+        if(cursor.moveToFirst()){
+            return new String[] {cursor.getString(1),cursor.getString(2),cursor.getString(3)};
+        }
+        else{
+            return null;
+        }
+
+    }
+
 }
