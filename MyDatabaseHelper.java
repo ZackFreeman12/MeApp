@@ -1,4 +1,4 @@
-package ca.mohawk.dailyquestions;
+package ca.meapp.meappchat;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
