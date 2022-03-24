@@ -1,4 +1,4 @@
-package ca.mohawk.dailyquestions;
+package ca.meapp.meappchat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
