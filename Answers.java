@@ -1,4 +1,4 @@
-package ca.mohawk.dailyquestions;
+package ca.meapp.meappchat;
 
 import android.os.Bundle;
 
