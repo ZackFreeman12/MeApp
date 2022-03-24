@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">dailyquestions</string>
+    <string name="ques">Question o\' the day</string>
+    <string name="emoji">🤔</string>
+    <string name="subcaption">Your answer will be cleared after 24hrs, so don\'t worry too much about what you say.</string>
+    <string name="start">Start</string>
+    <string name="skip">Skip</string>
+    <string name="stuff">Do you own crocs? Tell us the deets.</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
