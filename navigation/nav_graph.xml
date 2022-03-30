@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ca.meapp.meappchat.loginFragment"
+        android:name="ca.meapp.meappchat.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/channelFragment"
-        android:name="ca.meapp.meappchat.channelFragment"
+        android:name="ca.meapp.meappchat.ui.channel.ChannelFragment"
         android:label="fragment_channel"
         tools:layout="@layout/fragment_channel" >
         <action
@@ -28,19 +28,25 @@
         <action
             android:id="@+id/action_channelFragment_to_usersFragment"
             app:destination="@id/usersFragment" />
+        <argument
+            android:name="chatUser"
+            app:argType="ca.meapp.meappchat.model.ChatUsers" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="ca.meapp.meappchat.chatFragment"
+        android:name="ca.meapp.meappchat.ui.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" >
         <action
             android:id="@+id/action_chatFragment_to_channelFragment"
             app:destination="@id/channelFragment" />
+        <argument
+            android:name="channelId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/usersFragment"
-        android:name="ca.meapp.meappchat.usersFragment"
+        android:name="ca.meapp.meappchat.ui.users.UsersFragment"
         android:label="fragment_users"
         tools:layout="@layout/fragment_users" >
         <action
