@@ -1,10 +1,11 @@
-package ca.mohawk.meapp11;
+package ca.mohawk.meapp1_0;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +19,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -39,8 +45,15 @@ public class LoginActivity extends AppCompatActivity {
                 boolean success = dbh.checkEmailPassword(email,pass) != null;
                 if(success){
                     storedEmail = dbh.checkEmailPassword(email,pass);
-                    Toast.makeText(LoginActivity.this, "SUCC", Toast.LENGTH_SHORT).show();
-                    login();
+
+                    if(dbh.isNewUser(storedEmail)){
+                        loginNew();
+                    }
+                    else{
+                        login();
+                    }
+
+
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "No user found", Toast.LENGTH_SHORT).show();
@@ -63,7 +76,13 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void login(){
+
         Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("storedEmail",storedEmail);
+        startActivity(intent);
+    }
+    public void loginNew(){
+        Intent intent = new Intent(this, IntroActivity.class);
         intent.putExtra("storedEmail",storedEmail);
         startActivity(intent);
     }

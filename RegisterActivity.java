@@ -1,26 +1,32 @@
-package ca.mohawk.meapp11;
+package ca.mohawk.meapp1_0;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
 
     Button btnSub;
     Button btnBackToLog;
-    EditText etFirst, etLast, etEmail, etPass, etAge;
+    EditText etFirst, etLast, etEmail, etPass, etMonth, etDay, etYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -30,7 +36,10 @@ public class RegisterActivity extends AppCompatActivity {
         etFirst = findViewById(R.id.etFirst);
         etLast = findViewById(R.id.etLast);
         etPass = findViewById(R.id.etPass);
-        etAge = findViewById(R.id.etAge);
+
+        etMonth = findViewById(R.id.etMonth);
+        etDay = findViewById(R.id.etDay);
+        etYear = findViewById(R.id.etYear);
 
 
         btnSub.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +49,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                 final String firstName=etFirst.getText().toString();
                 final String lastName=etLast.getText().toString();
-                final String age=etAge.getText().toString();
+
+                final String age= getAge(Integer.parseInt(etYear.getText().toString()),
+                        Integer.parseInt(etMonth.getText().toString()),
+                        Integer.parseInt(etDay.getText().toString()));
+
                 final String email=etEmail.getText().toString();
                 final String pass=etPass.getText().toString();
                 boolean isValidEmail = !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
@@ -71,11 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                     etLast.requestFocus();
                     etLast.setError("ENTER ONLY ALPHABETICAL CHARACTER");
                 }
-                if(age.length()==0)
-                {
-                    etAge.requestFocus();
-                    etAge.setError("FIELD CANNOT BE EMPTY");
-                }
+
                 if(email.length()==0)
                 {
                     etEmail.requestFocus();
@@ -94,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else
                 {
                     ProfileModel profileModel = new ProfileModel(firstName + " " + lastName,
-                            age,email,pass);
+                            age,email,pass, "",true,"");
 
                     DatabaseHelper dbh = new DatabaseHelper(RegisterActivity.this);
 
@@ -126,5 +135,23 @@ public class RegisterActivity extends AppCompatActivity {
     public void toLog(){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    private String getAge(int year, int month, int day){
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = ageInt.toString();
+
+        return ageS;
     }
 }

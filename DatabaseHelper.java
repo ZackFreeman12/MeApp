@@ -1,11 +1,10 @@
-package ca.mohawk.meapp11;
+package ca.mohawk.meapp1_0;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Debug;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -19,6 +18,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "ID";
     public static final String COLUMN_USER_EMAIL = "COLUMN_USER_EMAIL";
     public static final String COLUMN_USER_PASSWORD = "COLUMN_USER_PASSWORD";
+    public static final String COLUMN_USER_GENDER = "COLUMN_USER_GENDER";
+    public static final String COLUMN_USER_NEW = "COLUMN_USER_NEW";
+    public static final String COLUMN_USER_DATE_PREF = "COLUMN_USER_DATE_PREF";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, "profile.db", null, 1);
@@ -31,7 +33,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "COLUMN_USER_NAME  TEXT, " +
                 "COLUMN_USER_AGE INTEGER, " +
                 "COLUMN_USER_EMAIL TEXT, " +
-                "COLUMN_USER_PASSWORD TEXT)";
+                "COLUMN_USER_PASSWORD TEXT,"+
+                "COLUMN_USER_GENDER TEXT,"+
+                "COLUMN_USER_NEW BOOL,"+
+                "COLUMN_USER_DATE_PREF)";
 
         db.execSQL(createTable);
     }
@@ -51,6 +56,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_USER_AGE, profileModel.getAge());
         cv.put(COLUMN_USER_EMAIL, profileModel.getEmail());
         cv.put(COLUMN_USER_PASSWORD, profileModel.getPass());
+        cv.put(COLUMN_USER_GENDER, profileModel.getGender());
+        cv.put(COLUMN_USER_NEW, profileModel.isNewUser());
+        cv.put(COLUMN_USER_DATE_PREF, profileModel.getDatePref());
+
 
         long insert = db.insert(PROFILE_TABLE, null, cv);
 
@@ -63,9 +72,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             Log.d("TAG",cursor.getString(2));
+            cursor.close();
             return email;
         }
         else{
+            cursor.close();
             return null;
         }
 
@@ -79,9 +90,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return new String[] {cursor.getString(1),cursor.getString(2),cursor.getString(3)};
         }
         else{
+            cursor.close();
             return null;
         }
 
+    }
+
+    public boolean isNewUser (String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select COLUMN_USER_NEW from PROFILE_TABLE where COLUMN_USER_EMAIL=?",new String[] {email});
+
+        if(cursor.moveToFirst()){
+            return cursor.getInt(0) > 0;
+        }
+        else{
+            cursor.close();
+            return false;
+        }
+
+    }
+
+    public boolean updateNewUser (){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_USER_NEW,false);
+
+        long update = db.update(PROFILE_TABLE, cv,null,null);
+
+        return update != -1;
     }
 
 }

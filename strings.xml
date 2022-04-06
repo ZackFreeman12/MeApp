@@ -19,4 +19,11 @@
     <string name="email">Email</string>
     <string name="submit">Submit</string>
     <string name="login">Login</string>
+    <string name="Intro_frag1_tv1">Welcome to the new world of dating</string>
+    <string name="Intro_frag1_tv2">Based in self love, we are here to understand what connection truly means to you</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Intro_frag2_tv2">We realize that you might not always want the same thing each night. We’re here to find what you need right now and what you want down the road.</string>
 </resources>
