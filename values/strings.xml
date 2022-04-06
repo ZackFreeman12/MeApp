@@ -21,4 +21,7 @@
     <string name="app_channels">Channels</string>
     <string name="app_open">Open</string>
     <string name="app_close">Close</string>
+    <string name="app_them_button">THEM</string>
+    <string name="app_home_button">HOME</string>
+    <string name="app_you_button">YOU</string>
 </resources>

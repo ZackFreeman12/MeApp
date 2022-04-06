@@ -13,10 +13,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/themButton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/app_them_button"
+            android:textColor="@color/salmon"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/homeButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/channelsView" />
+
+        <Button
+            android:id="@+id/homeButton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/app_home_button"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/youButton2"
+            app:layout_constraintStart_toEndOf="@+id/themButton2"
+            app:layout_constraintTop_toBottomOf="@+id/channelsView" />
+
+        <Button
+            android:id="@+id/youButton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/app_you_button"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/homeButton2"
+            app:layout_constraintTop_toBottomOf="@+id/channelsView" />
+
         <io.getstream.chat.android.ui.channel.list.header.ChannelListHeaderView
             android:id="@+id/channelListHeaderView"
             android:layout_width="0dp"
             android:layout_height="56dp"
+            app:layout_constraintBottom_toTopOf="@+id/channelsView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +65,7 @@
             android:id="@+id/channelsView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/themButton2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/channelListHeaderView" />

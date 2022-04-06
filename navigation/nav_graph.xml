@@ -7,21 +7,18 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ca.meapp.meappchat.ui.login.LoginFragment"
+        android:name="ca.meapp.meapp1_0.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/navigateLoginFragmentToChannelFragment"
-            app:destination="@id/channelFragment" />
+            android:id="@+id/action_loginFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
     </fragment>
     <fragment
         android:id="@+id/channelFragment"
-        android:name="ca.meapp.meappchat.ui.channel.ChannelFragment"
+        android:name="ca.meapp.meapp1_0.ui.channel.ChannelFragment"
         android:label="fragment_channel"
         tools:layout="@layout/fragment_channel" >
-        <action
-            android:id="@+id/action_channelFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_channelFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
@@ -30,11 +27,17 @@
             app:destination="@id/usersFragment" />
         <argument
             android:name="chatUser"
-            app:argType="ca.meapp.meappchat.model.ChatUsers" />
+            app:argType="ca.meapp.meapp1_0.model.ChatUsers" />
+        <action
+            android:id="@+id/action_channelFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_channelFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="ca.meapp.meappchat.ui.chat.ChatFragment"
+        android:name="ca.meapp.meapp1_0.ui.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" >
         <action
@@ -46,11 +49,26 @@
     </fragment>
     <fragment
         android:id="@+id/usersFragment"
-        android:name="ca.meapp.meappchat.ui.users.UsersFragment"
+        android:name="ca.meapp.meapp1_0.ui.users.UsersFragment"
         android:label="fragment_users"
         tools:layout="@layout/fragment_users" >
         <action
             android:id="@+id/action_usersFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="ca.meapp.meapp1_0.ui.landing.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing">
+        <action
+            android:id="@+id/action_landingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
+        <argument
+            android:name="chatUser"
+            app:argType="ca.meapp.meapp1_0.model.ChatUsers" />
     </fragment>
 </navigation>
