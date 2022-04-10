@@ -1,4 +1,4 @@
-package ca.meapp.meappchat;
+package ca.mohawk.dailyquestions;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -6,41 +6,50 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
-    private Context context;
-    private static final String DATABASE_NAME = "questions.db";
-    private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "my_questions";
-    private static final String COLUMN_id ="id";
-    private static final String COLUMN_QUESTIONS="the_questions";
-    private static final String COLUMN_ANSWERS = "the_answers";
+    public static final String TAG = "==MyDbHelper==";
 
-    public MyDatabaseHelper(@Nullable Context context)
+
+    public static final String DATABASE_NAME = "qAns.db";
+    public static final int DATABASE_VERSION = 1;
+    public static final String TABLE_NAME = "qAndAns";
+    public static final String COLUMN_id = "id";
+    public static final String COLUMN_QUESTIONS ="thequestions";
+    public static final String COLUMN_ANSWERS = "theanswers";
+
+
+    private static final String SQL_CREATE =
+            "CREATE TABLE " + TABLE_NAME + " ( " + COLUMN_id + " INTEGER PRIMARY KEY, " +
+                    COLUMN_QUESTIONS + " TEXT, " + COLUMN_ANSWERS + " TEXT) ";
+
+
+
+    public MyDatabaseHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = context;
+        Log.d(TAG, "constructor");
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        String query =
-                "CREATE TABLE " + TABLE_NAME +
-                        " (" + COLUMN_id + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_QUESTIONS + " TEXT," + COLUMN_ANSWERS + " TEXT);";
-        db.execSQL(query);
+        Log.d(TAG, "onCreate " + SQL_CREATE);
+        db.execSQL(SQL_CREATE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // This is only called if the DATABASE_VERSION changes
+        // Possible actions - delete table (ie DROP TABLE IF EXISTS mytable), then call onCreate
     }
 
+
+    /*
     public void insertQuestions(String a) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -67,4 +76,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
     }
+
+     */
 }

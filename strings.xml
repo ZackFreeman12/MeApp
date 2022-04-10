@@ -6,6 +6,8 @@
     <string name="start">Start</string>
     <string name="skip">Skip</string>
     <string name="stuff">Do you own crocs? Tell us the deets.</string>
+    <string name="submit">Submit</string>
+    <string name="huh">wassup</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
