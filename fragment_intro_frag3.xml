@@ -10,29 +10,34 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="325dp"
-        android:layout_height="66dp"
-        android:text="About Me"
+        android:layout_width="330dp"
+        android:layout_height="85dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Your All Set!"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.196" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="323dp"
-        android:layout_height="95dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac metus nec tortor pharetra porttitor non pellentesque ex. Mauris quis."
+        android:layout_width="330dp"
+        android:layout_height="146dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="This was a short demo of the introductory content, more preferences planned for future builds"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.499" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
