@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Questionairre</string>
+    <string name="ques">What are your dealbreakers?</string>
+    <string name="emoji"> 🙅‍♀️</string>
+    <string name="subcaption">Tell us those things that you absolute cannot tolerate &amp; we will help weed them out so you don\'t have to.</string>
+    <string name="a1">Smoking tobacco</string>
+    <string name="a2">Using marijuana</string>
+    <string name="a3">Drinking alcohol</string>
+    <string name="a4">Open relationships</string>
+    <string name="a5">Sex before marriage</string>
+    <string name="a6">Add custom</string>
+    <string name="started"> Let\'s get started</string>
+</resources>
