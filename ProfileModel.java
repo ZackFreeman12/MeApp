@@ -8,8 +8,9 @@ public class ProfileModel {
     private boolean newUser;
     private String datePref;
     private String gender;
+    private String answer;
 
-    public ProfileModel(String userName, String age, String email, String pass, String gender, boolean newUser, String datePref) {
+    public ProfileModel(String userName, String age, String email, String pass, String gender, boolean newUser, String datePref, String answer) {
         this.userName = userName;
         this.age = age;
         this.email = email;
@@ -17,6 +18,7 @@ public class ProfileModel {
         this.newUser = newUser;
         this.datePref = datePref;
         this.gender = gender;
+        this.answer = answer;
 
 
     }
@@ -75,6 +77,14 @@ public class ProfileModel {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     @Override

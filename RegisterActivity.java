@@ -25,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -103,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else
                 {
                     ProfileModel profileModel = new ProfileModel(firstName + " " + lastName,
-                            age,email,pass, "",true,"");
+                            age,email,pass, "",true,"","Not Answered Yet");
 
                     DatabaseHelper dbh = new DatabaseHelper(RegisterActivity.this);
 

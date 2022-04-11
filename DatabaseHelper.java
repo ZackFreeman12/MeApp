@@ -21,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_GENDER = "COLUMN_USER_GENDER";
     public static final String COLUMN_USER_NEW = "COLUMN_USER_NEW";
     public static final String COLUMN_USER_DATE_PREF = "COLUMN_USER_DATE_PREF";
+    public static final String COLUMN_USER_ANSWER = "COLUMN_USER_ANSWER";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, "profile.db", null, 1);
@@ -36,7 +37,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "COLUMN_USER_PASSWORD TEXT,"+
                 "COLUMN_USER_GENDER TEXT,"+
                 "COLUMN_USER_NEW BOOL,"+
-                "COLUMN_USER_DATE_PREF)";
+                "COLUMN_USER_DATE_PREF TEXT,"+
+                "COLUMN_USER_ANSWER TEXT)";
 
         db.execSQL(createTable);
     }
@@ -59,6 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_USER_GENDER, profileModel.getGender());
         cv.put(COLUMN_USER_NEW, profileModel.isNewUser());
         cv.put(COLUMN_USER_DATE_PREF, profileModel.getDatePref());
+        cv.put(COLUMN_USER_ANSWER, profileModel.getAnswer());
 
 
         long insert = db.insert(PROFILE_TABLE, null, cv);
@@ -87,7 +90,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from PROFILE_TABLE where COLUMN_USER_EMAIL=?",new String[] {email});
 
         if(cursor.moveToFirst()){
-            return new String[] {cursor.getString(1),cursor.getString(2),cursor.getString(3)};
+            return new String[] {cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(5),
+                    cursor.getString(7),
+                    cursor.getString(8)};
         }
         else{
             cursor.close();
@@ -110,15 +118,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean updateNewUser (){
+    public boolean updateProfile (String email, @Nullable String name, @Nullable String gender, @Nullable String datePref,
+                                  @Nullable Boolean newUser, @Nullable String answer){
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_USER_NEW,false);
 
-        long update = db.update(PROFILE_TABLE, cv,null,null);
+        if(name != null){
+            cv.put(COLUMN_USER_NAME,name);
+        }
+        if(gender != null){
+            cv.put(COLUMN_USER_GENDER,gender);
+        }
+        if(datePref != null){
+            cv.put(COLUMN_USER_DATE_PREF,datePref);
+        }
+        if(newUser != null){
+            cv.put(COLUMN_USER_NEW,newUser);
+        }
+        if(answer != null){
+            cv.put(COLUMN_USER_ANSWER,answer);
+        }
+        else{
+            Log.d("NULL","NULL");
+        }
+        if (cv != null) {
+            String[] args = new String[]{email};
+            long update = db.update(PROFILE_TABLE, cv,"COLUMN_USER_EMAIL=?",args);
+            return update != -1;
+        }
 
-        return update != -1;
+        return false;
+
     }
 
 }
