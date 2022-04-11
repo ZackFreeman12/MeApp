@@ -67,6 +67,18 @@
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_cornor"
+                    android:capitalize="characters"
+                    android:padding="10dp"
+                    android:text="@string/skip_button"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
 
             </LinearLayout>
 
