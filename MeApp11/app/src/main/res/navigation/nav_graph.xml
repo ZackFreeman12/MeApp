@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingFragment">
+
+    <fragment
+        android:id="@+id/channelFragment"
+        android:name="ca.mohawk.meapp1_0.ChannelFragment"
+        android:label="fragment_channel"
+        tools:layout="@layout/fragment_channel" >
+        <action
+            android:id="@+id/action_channelFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_channelFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+        <argument
+            android:name="chatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+        <action
+            android:id="@+id/action_channelFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
+        <action
+            android:id="@+id/action_channelFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_channelFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="ca.mohawk.meapp1_0.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
+        <argument
+            android:name="channelId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="ca.mohawk.meapp1_0.UserFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_usersFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="ca.mohawk.meapp1_0.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing">
+        <action
+            android:id="@+id/action_landingFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
+        <argument
+            android:name="chatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+        <action
+            android:id="@+id/action_landingFragment_self"
+            app:destination="@id/landingFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_checkupFragment"
+            app:destination="@id/checkupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ca.mohawk.meapp1_0.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="chatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+        <action
+            android:id="@+id/action_profileFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="ca.mohawk.meapp1_0.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/checkupFragment"
+        android:name="ca.mohawk.meapp1_0.CheckupFragment"
+        android:label="fragment_checkup"
+        tools:layout="@layout/fragment_checkup" >
+        <argument
+            android:name="ChatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+        <action
+            android:id="@+id/action_checkupFragment_to_conflictFragment"
+            app:destination="@id/conflictFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/conflictFragment"
+        android:name="ca.mohawk.meapp1_0.ConflictFragment"
+        android:label="fragment_conflict"
+        tools:layout="@layout/fragment_conflict" >
+        <action
+            android:id="@+id/action_conflictFragment_to_relationshipFragment2"
+            app:destination="@id/relationshipFragment2" />
+        <argument
+            android:name="chatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+    </fragment>
+    <fragment
+        android:id="@+id/relationshipFragment2"
+        android:name="ca.mohawk.meapp1_0.RelationshipFragment"
+        android:label="fragment_relationship"
+        tools:layout="@layout/fragment_relationship" >
+        <action
+            android:id="@+id/action_relationshipFragment2_to_personalityFragment"
+            app:destination="@id/personalityFragment" />
+        <argument android:name="chatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalityFragment"
+        android:name="ca.mohawk.meapp1_0.PersonalityFragment"
+        android:label="fragment_personality"
+        tools:layout="@layout/fragment_personality" >
+        <action
+            android:id="@+id/action_personalityFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
+        <argument android:name="chatUser"
+            app:argType="ca.mohawk.meapp1_0.ChatUsers" />
+    </fragment>
+</navigation>

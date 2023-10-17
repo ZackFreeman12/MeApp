@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">MeApp 0.1</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="john_doe">Jane Doe</string>
+    <string name="birthdate">Birthdate: dd-mm-yyyy</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="age">Age</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="login">Login</string>
+    <string name="Intro_frag1_tv1">Welcome to the new world of dating</string>
+    <string name="Intro_frag1_tv2">Based in self love, we are here to understand what connection truly means to you</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="Intro_frag2_tv2">We realize that you might not always want the same thing each night. We’re here to find what you need right now and what you want down the road.</string>
+    <string name="api_key">2j742ruvpf3h</string>
+    <string name="app_username">Username: </string>
+    <string name="app_password">Password: </string>
+    <string name="app_title">Me: App</string>
+    <string name="app_login">Log In</string>
+    <string name="app_signup">Sign Up</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="app_go">GO</string>
+    <string name="chat_app">Chat App</string>
+    <string name="app_reliable_and_fast">Reliable and Fast</string>
+    <string name="app_first_name">First Name</string>
+    <string name="app_search">Search</string>
+    <string name="app_log_out">Log Out</string>
+    <string name="app_settings">Settings</string>
+    <string name="app_groups">Groups</string>
+    <string name="app_channels">Channels</string>
+    <string name="app_open">Open</string>
+    <string name="app_close">Close</string>
+    <string name="app_them_button">THEM</string>
+    <string name="app_home_button">HOME</string>
+    <string name="app_you_button">YOU</string>
+    <string name="ques">Question o\' the day</string>
+    <string name="emoji">🤔</string>
+    <string name="subcaption">Your answer will be cleared after 24hrs, so don\'t worry too much about what you say.</string>
+    <string name="start">Start</string>
+    <string name="stuff">Do you own crocs? Tell us the deets.</string>
+    <string name="huh">wassup</string>
+
+    <string name="relationship_page_header">Time to get away?</string>
+    <string name="relationship_page_body">You have been with Karen for a few months now- have you thought of getting away.</string>
+    <string name="book_button">Book a Gateaway</string>
+    <string name="conflict_page_header">How to navigate conflict?</string>
+    <string name="conflict_page_body">6 Tips for better communication</string>
+    <string name="start_button">Start</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="checkup_page_heading">Have you been checked lately?</string>
+    <string name="checkup_up_subheading">Spread Love not STI\'s</string>
+    <string name="location_button">Find a location</string>
+    <string name="skip_button">Skip</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="personality_page_header"><u><b>You personality type is INTJs!</b></u></string>
+    <string name="personality_page_body">
+        INTJs tend to be introverted and prefer to work alone.
+        INTJs look at the big picture and like to focus on abstract information rather than concrete details.
+        INTJs place greater emphasis on logic and objective information rather than subjective emotions.
+        INTJs like their world to feel controlled and ordered so they prefer to make plans well in advance.
+    </string>
+    <string name="btn_addToProfile">Add to Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="a1">Smoking tobacco</string>
+    <string name="a2">Using marijuana</string>
+    <string name="a3">Drinking alcohol</string>
+    <string name="a4">Open relationships</string>
+    <string name="a5">Sex before marriage</string>
+    <string name="a6">Add custom</string>
+    <string name="started"> Let\'s get started</string>
+</resources>
