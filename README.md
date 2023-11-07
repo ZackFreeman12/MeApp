@@ -1,4 +1,13 @@
-INSTALL INSTRUCTIONS
+# Dating App Demo For Client
+
+MeApp was a dating app prototype made to specification for a client. 
+It was built in Java using Android Studio, implementing a user database and proflies with SQLite. 
+Fully functional SMS chat between users was implemented using the ChatStream library. 
+MeApp has since then been utilized by a happy client to pursue their future endeavors with investors.
+
+
+
+# INSTALL INSTRUCTIONS
 
 Zip file provided is the current main full build
 
